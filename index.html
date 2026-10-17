@@ -57,9 +57,6 @@ h1{font-size:clamp(38px,6vw,68px);line-height:1.05;font-weight:800;letter-spacin
 .frame .img{position:absolute;inset:0;border-radius:30px;overflow:hidden;background:#10162f;display:grid;place-items:center;border:4px solid var(--bg)}
 .frame img{width:100%;height:100%;object-fit:cover;display:none}
 .mono{font-size:96px;font-weight:800;color:#ffffff30}
-.upl{display:inline-block;margin-top:26px;font-size:13px;font-weight:600;color:var(--dim);border:1px dashed var(--stroke);padding:9px 18px;border-radius:999px;cursor:pointer;transition:.3s}
-.upl:hover{color:#fff;border-color:var(--b)}
-.upl input{display:none}
 /* chat */
 .chat{display:grid;grid-template-columns:1fr 2fr;overflow:hidden}
 .side{padding:30px;border-right:1px solid var(--stroke)}
@@ -136,17 +133,19 @@ footer{text-align:center;color:var(--dim);font-size:14px;padding:50px 20px 60px}
 /* ============ EDIT YOUR DETAILS HERE ============ */
 const ME = {
   name: "Asad Ali Faridi",
-  photo: "me.jpeg",                       // permanent photo: put "me.jpg" next to this file, e.g. photo: "me.jpg"
+  photo: "me.jpeg",             // Set your permanent professional portrait image
+  phone: "+91 9523257763",          // REPLACE this placeholder with your actual phone number
   roles: ["B.Tech CSE (IoT) Student","AI & Emerging Tech Enthusiast","Python & OpenCV Developer","Lifelong Learner"],
   bio: "I'm passionate about AI, emerging technologies, and building smart solutions. Currently pursuing my degree and continuously learning to innovate and solve real-world problems.",
   email: "faridiasad19@gmail.com",
   stats: [["93%","Class 12 Score"],["4+","Languages Known"],["1+","Projects Built"]],
-  links: [["Email Me","mailto:faridiasad19@gmail.com"]],
+  links: [
+    ["Email Me","mailto:faridiasad19@gmail.com"],
+    ["Call Me","tel:+919523257763"]  // REPLACE this placeholder with your actual phone number in the link as well
+  ],
   skills: [["Python",75],["Java",70],["C",70],["HTML & CSS",80],["OpenCV",55]],
   projects: [
     ["Emotion Detection","Detects human emotions using Python and OpenCV.",["Python","OpenCV","AI"]]
-    
-    
   ],
   faq: [
     {k:["mother","mom","mum","mummy","ammi"],a:"My mother's name is Mumtaz Begam."},
@@ -162,7 +161,7 @@ const ME = {
     {k:["project","projects","built","made","work","worked","emotion","opencv","detection"],a:"I built an emotion detection project using Python and OpenCV."},
     {k:["hobby","hobbies","free","fun","interest","interests","cricket","movies","travel","travelling"],a:"I enjoy coding, watching movies, travelling, exploring new technologies and learning new things. I'm a little interested in cricket too."},
     {k:["personality","ambivert","introvert","extrovert","nature","character","type"],a:"I'm an ambivert."},
-    {k:["contact","email","mail","reach","hire","connect","touch"],a:"You can reach me at faridiasad19@gmail.com."},
+    {k:["contact","email","mail","reach","hire","connect","touch","phone","number","mobile","call"],a:"You can reach me at faridiasad19@gmail.com or call me at " + "+91 9523257763" + "."}, // REPLACE +91 9876543210 with your actual phone number here as well
     {k:["physics"],a:"I scored 93/100 in Physics in Class 12."},
     {k:["chemistry"],a:"I scored 95/100 in Chemistry in Class 12."},
     {k:["maths","math","mathematics"],a:"I scored 91/100 in Maths in Class 12."},
@@ -173,20 +172,12 @@ const ME = {
     {k:["10th","10","tenth","matric","matriculation"],a:"I completed Class 10 at AY International School in 2023 with 83%."},
     {k:["school","schooling","marks","score","scored","percentage","grades","academic","academics","result","results","subjects"],a:"Class 10: 83% (AY International School, 2023). Class 12: 93% (Krishna International School, 2025), with Physics 93, Chemistry 95, Maths 91, Physical Education 93, English 82 and Engineering Graphics 89."},
     {k:["address","live","lives","where","village","home","hometown","from","location","located","based","city","district","state","bihar","native"],a:"I'm from Village Daulatpur, Post Sekhopur, PS Warisnagar, District Samastipur, Bihar, India, and I'm currently studying in Bengaluru."},
-    
-    
-    
-    
-    
-    
-    
     {k:["hello","hi","hey"],a:"Hello! Ask me about my education, marks, skills, hobbies, family or how to reach me."}
   ],
   fallback: "I don't have an answer for that yet. Try asking about my education, marks, skills, project, hobbies or contact details."
 };
 /* ================================================= */
-const $=s=>document.querySelector(s);
-$('#name').textContent=ME.name;$('#fname').textContent=ME.name;$('#mono').textContent=ME.name[0];
+const $=s=>document.querySelector(s);$('#name').textContent=ME.name;$('#fname').textContent=ME.name;$('#mono').textContent=ME.name[0];
 $('#bio').textContent=ME.bio;$('#yr').textContent=new Date().getFullYear();
 $('#cmsg').textContent="Have an idea or an opportunity? I'd love to hear from you.";
 $('#stats').innerHTML=ME.stats.map(([n,l])=>`<div><b data-n="${n}">0</b><span>${l}</span></div>`).join('');
